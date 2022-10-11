@@ -1,0 +1,1 @@
+ts-node -T iexec_server.ts

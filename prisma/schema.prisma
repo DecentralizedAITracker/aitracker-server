@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Prediction {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  dapp_address     String
+  oracle_address  String
+  taskId  String  
+  timestamp    Int
+  isScored  Boolean @default(false)
+  isCorrect Boolean @default(false)
+}
+
+model File{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  filename  String
+  timestamp BigInt
+}
+
+model Stats{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  dapp_address String 
+  total_predictions Int @default(0)
+  correct_predictions Int @default(0)
+  incorrect_prediction Int @default(0)
+}
