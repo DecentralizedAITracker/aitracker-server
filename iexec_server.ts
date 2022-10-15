@@ -10,7 +10,7 @@ const AITrackerXMRUSDT = require("./AITrackerXMRUSDT.json");
 const AITrackerRLCUSDT = require("./AITrackerRLCUSDT.json");
 
 const prisma = new PrismaClient()
-let SERVER_ADDRESS = "http://46.101.250.145:3003/"
+let SERVER_ADDRESS = "https://predictme.io:3003/"
 let PUBLIC = "public/"
 let ABSULUTEPATH_PUBLIC = __dirname + "/public/"
 const network = "goerli";
