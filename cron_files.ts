@@ -9,7 +9,7 @@ let main = async () => {
     let files = await prisma.file.findMany({
         where : {
             timestamp : {
-                lt : Date.now()-15*minute,
+                lt : Date.now()-180*minute,
             }
         }
     })

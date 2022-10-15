@@ -51,7 +51,7 @@ app.post('/publickey',async (req,res) =>{
     }
   })
 
-  let url_file = "http://46.101.250.145:3003/" + filename
+  let url_file = "https://predictme.io:3003/" + filename
   let response = {
     url_file : url_file
   }
@@ -93,8 +93,8 @@ app.post('/stats', async (req,res) =>{
 
 
 const sslServer = https.createServer({
-  key : fs.readFileSync(path.join(__dirname,'cert','key.pem')),
-  cert : fs.readFileSync(path.join(__dirname,'cert','cert.pem'))
+  key : fs.readFileSync("/etc/letsencrypt/live/predictme.io/privkey.pem",'utf8'),
+  cert : fs.readFileSync("/etc/letsencrypt/live/predictme.io/fullchain.pem",'utf8')
 },app)
 
 sslServer.listen(port,() => {
