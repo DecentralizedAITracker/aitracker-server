@@ -14,7 +14,7 @@ let SERVER_ADDRESS = "https://predictme.io:3003/"
 let PUBLIC = "public/"
 let ABSULUTEPATH_PUBLIC = __dirname + "/public/"
 const network = "goerli";
-const findPredictionOlderThanMin = 1
+const findPredictionOlderThanMin = 65
 
 class IexecServer{
     iexecCrud
@@ -193,7 +193,7 @@ let main = async () =>{
  await iexecServer.onCron()
 }
 
-cron.schedule('*/5 * * * *', () => {
+cron.schedule('*/45 * * * *', () => {
     main()
     console.log('running a task every 5 minutes');
   });
