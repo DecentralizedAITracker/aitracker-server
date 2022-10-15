@@ -14,7 +14,7 @@ let SERVER_ADDRESS = "http://46.101.250.145:3003/"
 let PUBLIC = "public/"
 let ABSULUTEPATH_PUBLIC = __dirname + "/public/"
 const network = "goerli";
-const findPredictionOlderThanMin = 65
+const findPredictionOlderThanMin = 1
 
 class IexecServer{
     iexecCrud
@@ -193,7 +193,7 @@ let main = async () =>{
  await iexecServer.onCron()
 }
 
-cron.schedule('*/45 * * * *', () => {
+cron.schedule('*/5 * * * *', () => {
     main()
-    console.log('running a task every 45 minutes');
+    console.log('running a task every 5 minutes');
   });
